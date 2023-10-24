@@ -1,4 +1,4 @@
-package com.backink.beetlerecord;
+package com.backink.beetlerecord.project;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.backink.beetlerecord.databinding.FragmentFirstBinding;
+import com.backink.beetlerecord.R;
+import com.backink.beetlerecord.databinding.FragmentProjectBinding;
+public class ProjectFragment extends Fragment {
 
-public class FirstFragment extends Fragment {
-
-    private FragmentFirstBinding binding;
+    private FragmentProjectBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentProjectBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -32,7 +32,7 @@ public class FirstFragment extends Fragment {
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
+                NavHostFragment.findNavController(ProjectFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
