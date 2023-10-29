@@ -42,6 +42,7 @@ public class ProjectViewAdapter extends RecyclerView.Adapter<ProjectViewAdapter.
     public ProjectViewAdapter(String[] dataSet) {
         localDataSet = dataSet;
     }
+    public ProjectViewAdapter() {}
 
     // Create new views (invoked by the layout manager)
     @NonNull
