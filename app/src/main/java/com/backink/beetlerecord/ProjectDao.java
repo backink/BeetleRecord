@@ -1,5 +1,6 @@
 package com.backink.beetlerecord;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,5 +21,5 @@ public interface ProjectDao {
     void delete (Project project);
 
     @Query("SELECT * FROM project_table")
-    List<Project> loadAll ();
+    LiveData<List<Project>> loadAll ();
 }

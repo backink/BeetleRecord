@@ -2,6 +2,7 @@ package com.backink.beetlerecord.project;
 
 import android.app.Application;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -16,7 +17,7 @@ public class ProjectViewModel extends ViewModel {
 
     public ProjectViewModel(Application application, ProjectDao dao) {
         this.dao = dao;
-        projects = (LiveData<List<Project>>) this.dao.loadAll();
+        projects = this.dao.loadAll();
     }
 
     public LiveData<List<Project>> getProjects() {
