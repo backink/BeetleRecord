@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Project.class}, version = 0)
+@Database(entities = {Project.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
     public abstract ProjectDao projectDao();
