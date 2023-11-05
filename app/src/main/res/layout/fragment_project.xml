@@ -6,24 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".project.ProjectFragment" >
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:id="@+id/project_name" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/project_recycler"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:id="@+id/project_name" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/project_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/project_recycler"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_project"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/project_recycler"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    </LinearLayout>
-
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

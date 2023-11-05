@@ -46,6 +46,16 @@ public class ProjectFragment extends Fragment {
             }
         });
 
+        binding.fabProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String projectName = binding.projectName.getText().toString();
+                if (projectName != null) {
+                    viewModel.insert(new Project(projectName));
+                }
+            }
+        });
+
         return binding.getRoot();
 
     }

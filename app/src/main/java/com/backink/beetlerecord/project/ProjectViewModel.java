@@ -25,6 +25,6 @@ public class ProjectViewModel extends ViewModel {
     }
 
     public void insert(Project project) {
-        dao.insert(project);
+        new Thread(() -> dao.insert(project)).start();
     }
 }

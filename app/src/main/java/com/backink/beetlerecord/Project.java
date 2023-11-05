@@ -6,6 +6,15 @@ import androidx.room.PrimaryKey;
 
 @Entity (tableName = "project_table")
 public class Project {
+
+    public Project() {
+        this.projectName = "My Project";
+    }
+
+    public Project(String projectName) {
+        this.projectName = projectName;
+    }
+
     @PrimaryKey
     public int id;
 
