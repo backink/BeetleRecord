@@ -15,7 +15,7 @@ public class Project {
         this.projectName = projectName;
     }
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo (name = "project_name")
