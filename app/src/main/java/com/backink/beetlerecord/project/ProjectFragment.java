@@ -1,9 +1,12 @@
 package com.backink.beetlerecord.project;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -49,10 +52,8 @@ public class ProjectFragment extends Fragment {
         binding.fabProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String projectName = binding.projectName.getText().toString();
-                if (projectName != null) {
-                    viewModel.insert(new Project(projectName));
-                }
+                AlertDialog dialog = createDialog();
+                dialog.show();
             }
         });
 
@@ -68,6 +69,23 @@ public class ProjectFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private AlertDialog createDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.project_dialog, null);
+        builder.setView(dialogView);
+        builder.setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                EditText input = dialogView.findViewById(R.id.input_project_name);
+                viewModel.insert(new Project(input.getText().toString()));
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+
+        return builder.create();
     }
 
 }

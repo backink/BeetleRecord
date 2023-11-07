@@ -8,6 +8,10 @@
     <string name="previous">Previous</string>
 
     <string name="created">Created : </string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="create_project">Create Project</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum
