@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.backink.beetlerecord.databinding.FragmentSecondBinding;
+import com.backink.beetlerecord.databinding.FragmentContentBinding;
 
-public class SecondFragment extends Fragment {
+public class ContentFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentContentBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = binding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -32,7 +32,7 @@ public class SecondFragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
+                NavHostFragment.findNavController(ContentFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
