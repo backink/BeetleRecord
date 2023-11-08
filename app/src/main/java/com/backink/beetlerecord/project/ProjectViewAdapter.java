@@ -27,16 +27,14 @@ public class ProjectViewAdapter extends ListAdapter<Project, ProjectViewAdapter.
      * (custom ViewHolder).
      */
     public static class ProjectViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView projectName;
+        private final TextView createDate;
 
         public ProjectViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            textView = (TextView) view.findViewById(R.id.project_name);
-        }
-
-        public TextView getTextView() {
-            return textView;
+            projectName = view.findViewById(R.id.project_name);
+            createDate = view.findViewById(R.id.created_date);
         }
     }
 
@@ -63,7 +61,8 @@ public class ProjectViewAdapter extends ListAdapter<Project, ProjectViewAdapter.
     public void onBindViewHolder(ProjectViewHolder viewHolder, final int position) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.getTextView().setText(getItem(position).projectName);
+        viewHolder.projectName.setText(getItem(position).projectName);
+        viewHolder.createDate.setText("Created : " + getItem(position).createDate);
     }
 
     public static class ProjectDiffCallback extends DiffUtil.ItemCallback<Project> {
