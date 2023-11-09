@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -63,6 +64,9 @@ public class ProjectViewAdapter extends ListAdapter<Project, ProjectViewAdapter.
         // contents of the view with that element
         viewHolder.projectName.setText(getItem(position).projectName);
         viewHolder.createDate.setText("Created : " + getItem(position).createDate);
+        viewHolder.itemView.setOnClickListener(view -> {
+            Toast.makeText(viewHolder.itemView.getContext(), viewHolder.projectName.getText(), Toast.LENGTH_LONG).show();
+        });
     }
 
     public static class ProjectDiffCallback extends DiffUtil.ItemCallback<Project> {
